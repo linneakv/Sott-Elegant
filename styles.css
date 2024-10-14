@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+* {
+    box-sizing: border-box; /* Inkludera padding och border i totalbredd */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #9fd9bb;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Förhindra horisontell scrollning */
+}
+
+.navbar {
+    background-color: #517b65;
+    border: 2px solid #FFFFFF;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 20px 30px; /* Öka padding för att göra menyn större */
+    font-size: 18px; /* Justera fontstorleken */
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.navbar a.active {
+    color: #000000;
+    text-decoration: underline; /* Understruken för aktiv länk */
+}
+
+.banner {
+    height: 400px;
+    margin: 0;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    border: 2px solid #FFFFFF; /* Vit outline under bannerbilderna */
+}
+
+.banner::before {
+    content: ''; /* Skapa ett tomt innehåll */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-color: rgba(159, 217, 187, 0.7); /* Grön färg med 70% opacitet */
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 2px solid #FFFFFF; /* Vit outline för rektangeln */
+}
+
+.banner::after {
+    content: ''; /* Placeholder för texten */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 5vw; /* Gör textstorleken responsiv (5% av viewport-bredden) */
+    color: #FFFFFF;
+    text-align: center;
+    z-index: 2;
+    white-space: nowrap;
+    max-width: 90%; /* Maxbredd för att säkerställa att texten inte överskrider bannern */
+    overflow: hidden; /* Dölj eventuell överflödig text */
+    text-overflow: ellipsis; /* Använd ellipsis om texten är för lång */
+    text-shadow: 
+        -2px -2px 0 #956460,
+        2px -2px 0 #956460,
+        -2px 2px 0 #956460,
+        2px 2px 0 #956460; /* Tjock outline i färgen #956460, tre gånger så tjock */
+}
+
+/* Specifik text för varje sida */
+.home .banner::after {
+    content: "Sött & Elegant"; /* Ändrad titel här */
+}
+
+.sortiment .banner::after {
+    content: "Våra Bakverk";
+}
+
+.kurser .banner::after {
+    content: "Kurser";
+}
+
+.nyheter .banner::after {
+    content: "Nytt hos oss";
+}
+
+.kontakt .banner::after {
+    content: "Kontakta oss";
+}
+
+.content {
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #956460;
+    background-color: #956460;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-box {
+    background-color: #956460;
+    border: 2px solid #956460;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.image-box {
+    display: flex;
+    justify-content: center; /* Centra bilderna på större skärmar */
+    flex-wrap: wrap; /* Gör så att bilderna bryts till nästa rad vid små skärmar */
+}
+
+.image {
+    width: calc(33.33% - 20px); /* Tre bilder i en rad med lite utrymme för marginal */
+    height: 200px;
+    background-color: #FFF; /* Placeholder background */
+    margin: 10px; /* Minska sidomarginalerna för att passa in i bredden */
+    background-size: cover;
+
+    /* Ram och outline */
+    border: 10px solid #d5a5a2;
+    box-shadow: 0 0 0 2px #FFFFFF;
+}
+
+/* Bilder för index */
+.home .banner {
+    background-image: url('bilder/bannerbildhem.jpeg');
+}
+
+#indexbakverk {
+    background-image: url('bilder/indexbakverk.jpeg');
+    background-position: center center;
+    background-size: cover;
+}
+
+#indexfrontdisk {
+    background-image: url('bilder/indexfrontdisk.jpeg');
+}
+
+#indexkonditori {
+    background-image: url('bilder/indexkonditori.jpeg');
+    background-position: center center;
+    background-size: cover;
+}
+
+/* Bilder för sortiment */
+.sortiment .banner {
+    background-image: url('bilder/bannerbildsortiment.jpeg');
+}
+
+#sortimentbarntårta {
+    background-image: url('bilder/sortimentbarntårta.jpeg');
+}
+
+#sortimentbröllop {
+    background-image: url('bilder/sortimentbröllop.jpeg');
+}
+
+#sortimentcupcakes {
+    background-image: url('bilder/sortimentcupcakes.jpeg');
+}
+
+#sortimentmacarons {
+    background-image: url('bilder/sortimentmacarons.jpeg');
+}
+
+/* Bilder för kurser */
+.kurser .banner {
+    background-image: url('bilder/bannerbildkurser.jpeg');
+    background-position: center 10%;
+    background-size: cover;
+}
+
+#kurserbarn {
+    background-image: url('bilder/kurserbarn.jpeg');
+}
+
+#kurserdekor {
+    background-image: url('bilder/kurserdekor.jpeg');
+}
+
+#kursersockerkonst {
+    background-image: url('bilder/kursersockerkonst.jpeg');
+}
+
+#kurserutbildning {
+    background-image: url('bilder/kurserutbildning.jpeg');
+}
+
+/* Bilder för nyheter */
+.nyheter .banner {
+    background-image: url('bilder/bannerbildnyheter.jpeg');
+    background-position: center center;
+    background-size: cover;
+}
+
+#nyheter {
+    background-image: url('bilder/nyheter.jpeg');
+}
+
+/* Bilder för kontakt */
+.kontakt .banner {
+    background-image: url('bilder/bannerbildkontakt.jpeg');
+}
+
+/* Media Queries för responsiv design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Gör navbaren vertikal */
+        align-items: center; /* Centrera innehåll */
+    }
+
+    .navbar a {
+        padding: 15px 20px; /* Justera padding för mindre skärmar */
+        font-size: 16px; /* Minska fontstorleken */
+    }
+
+    .banner::after {
+        font-size: 8vw; /* Gör textstorleken större men fortfarande responsiv */
+        white-space: normal; /* Tillåt text att brytas på mindre skärmar */
+        max-width: 90%; /* Maxbredd för att säkerställa att texten inte överskrider bannern */
+    }
+
+    .content {
+        margin: 10px; /* Minska marginalerna för content */
+        padding: 15px; /* Minska padding */
+    }
+
+    .image-box {
+        justify-content: center; /* Centrera bilder på mindre skärmar */
+    }
+
+    .image {
+        width: 90%; /* Gör bilderna bredare på mindre skärmar */
+        height: 150px; /* Minska höjden på bilder */
+        margin: 10px auto; /* Centrera bilder */
+    }
+
+    #map {
+        width: 100%; /* Gör kartan responsiv */
+        height: 200px; /* Minska höjden på kartan */
+    }
+}
+
+/* Specifika ändringar för kontaktsidan */
+#map {
+    width: 400px; /* Sätt en specifik bredd, t.ex. 400px */
+    height: 400px; /* Sätt höjden till samma som bredden för att göra den fyrkantig */
+    margin: 20px auto; /* Centrera kartan med marginaler */
+    border: 2px solid #d5a5a2; /* Minska ramen om den är för stor */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Justera skuggan för att ge ett subtilt utseende */
+}
